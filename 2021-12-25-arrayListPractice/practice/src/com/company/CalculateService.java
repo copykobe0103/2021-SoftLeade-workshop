@@ -31,5 +31,11 @@ public class CalculateService {
         }
         return totalSalrary;
     }
+    public double countHalfHours2(String beginTime,String endTime) throws ParseException {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat( "HH:mm");
+        Date checkInTime = simpleDateFormat.parse(beginTime);
+        Date checkOutTime = simpleDateFormat.parse(endTime);
+        return ((checkOutTime.getTime()-checkInTime.getTime())/(1000*60))/30;
 
+    }
 }
