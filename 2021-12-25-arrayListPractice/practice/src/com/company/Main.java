@@ -47,6 +47,12 @@ public class Main {
         System.out.println("totalSalraryType2 = " + totalSalrary2);
         System.out.println("lastHalfHoursType2 = " + totalHalfHours2);
 
+        System.out.println("-------------------------------------------------");
+        RightLeft demo = new RightLeft();
+
+        demo.setUp();
+
+        demo.Test();
 
     }
 
