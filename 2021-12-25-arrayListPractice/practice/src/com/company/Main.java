@@ -14,6 +14,10 @@ public class Main {
         double totalHalfHours = 0;
         double totalHalfHours2 = 0;
         String checkInStartTime = null;
+        double totalHalfHoursMonth11 = 0;
+        double totalHalfHoursMonth12 = 0;
+        double totalSalraryMonth11 = 0;
+        double totalSalraryMonth12 = 0;
 
         List<String> checkInRecord = new ArrayList<>();
         checkInRecord.add("2021-12-01 08:00");
@@ -54,6 +58,38 @@ public class Main {
 
         demo.Test();
 
+        System.out.println("--------------------------------------------------");
+        List<String> checkInRecordByMonth = new ArrayList<>();
+        checkInRecordByMonth.add("2021-11-01 08:00 16:00");
+        checkInRecordByMonth.add("2021-11-02 08:00 16:00");
+        checkInRecordByMonth.add("2021-12-01 08:00 18:00");
+//        System.out.println(checkInRecordByMonth.get(0).substring(5,7));
+        for (int i = 0;i < checkInRecordByMonth.size();i++){
+            switch (checkInRecordByMonth.get(i).substring(5,7)) {
+                case "11":
+                    totalHalfHoursMonth11 = calculateService.countHalfHours2
+                            ((checkInRecordByMonth.get(i)).substring(11, 16),
+                            (checkInRecordByMonth.get(i)).substring(17, 22));
+                    totalSalraryMonth11 = totalSalraryMonth11 +
+                            calculateService.salaryCaculate(totalHalfHoursMonth11, 50);
+                    break;
+                case "12":
+                    totalHalfHoursMonth12 = calculateService.countHalfHours2
+                            ((checkInRecordByMonth.get(i)).substring(11, 16),
+                                    (checkInRecordByMonth.get(i)).substring(17, 22));
+                    totalSalraryMonth12 = totalSalraryMonth12 +
+                            calculateService.salaryCaculate(totalHalfHoursMonth12, 50);
+                    break;
+                default:
+                    System.out.println("else");
+
+                }
+            }
+        System.out.println("totalSalraryMonth11 = " + totalSalraryMonth11);
+        System.out.println("totalSalraryMonth12 = " + totalSalraryMonth12);
+
+        }
+
+
     }
 
-}
